@@ -1,12 +1,18 @@
-import React,{useState} from 'react'
+import React,{useEffect, useState} from 'react'
 
-const Form = ({ addTransaction }) => {
+const Form = ({ addTransaction ,edit }) => {
   const [text, setText] = useState('')
   const [amount, setAmount] = useState()
+
+  useEffect (() => {
+    setText(edit.transaction.text)
+    setAmount(edit.transaction.amount)
+  },[edit])
     
   const hadleSubmit = ((e) => {
     e.preventDefault()
-    addTransaction(text , +amount)
+    addTransaction(text , amount)
+
 
     setText("")
     setAmount("")
@@ -29,7 +35,9 @@ const Form = ({ addTransaction }) => {
                   setAmount(e.target.value)
                 }}
                 type="number" placeholder='Enter Amount' className='w-full py-2 px-4 rounded-sm outline-none'/>
-                <button className='w-full bg-green-700 py-2 text-white rounded-sm hover:bg-green-600'>Submit</button>
+                <button className='w-full bg-green-700 py-2 text-white rounded-sm hover:bg-green-600'>
+                  {edit.isedit ? "Update" : "Submit"}
+                  </button>
             </form>
     </div>
   )

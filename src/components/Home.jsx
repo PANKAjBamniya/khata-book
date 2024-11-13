@@ -6,6 +6,10 @@ import ListGroup from './ListGroup'
 
 const Home = () => {
   const [transactions , setTransactions] = useState([])
+  const [edit , setEdit ] = useState({
+    transaction: {} ,
+    isedit : false , 
+  })
 
   const removeTransaction = ((id) => {
     setTransactions(transactions.filter((transaction) => transaction.id !== id))
@@ -21,11 +25,18 @@ const Home = () => {
     setTransactions([...transactions , newTransaction])
   })
 
+  const handleEdit = ((transaction) => {
+ 
+    setEdit({
+      transaction: transaction,
+      isedit: true
+    })
+  })
   return ( 
     <div className='dark:bg-gray-800 p-4'>
-        <Form addTransaction={addTransaction}/>
+        <Form addTransaction={addTransaction} edit={edit}/>
         <DashBord/>
-        <ListGroup transactions={transactions} removeTransaction={removeTransaction}/>
+        <ListGroup transactions={transactions} removeTransaction={removeTransaction} handleEdit={handleEdit}/>
     </div>
   )
 }
