@@ -6,7 +6,7 @@ import { FaSun } from "react-icons/fa";
 const Navbar = ({changeTheme,darkMode}) => {
   return (
 
-    <nav className='bg-slate-200 shadow-xl py-5 px-16 flex items-center justify-between dark:bg-gray-700 dark:text-white'>
+    <nav className='bg-slate-200 shadow-xl py-5 md:px-16 px-3 flex items-center justify-between dark:bg-gray-700 dark:text-white'>
         <div className='flex space-x-3 items-center'>
             <h1 className='text-2xl font-serif font-bold'>Khatabook</h1>
             <FaBookReader  className='text-blue-700 text-2xl'/>
