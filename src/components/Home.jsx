@@ -32,9 +32,21 @@ const Home = () => {
       isedit: true
     })
   })
+  
+  const updatedtransactions = ((updatedtranscation) => {
+    setTransactions(transactions.map((transaction) => 
+      transaction.id === updatedtranscation.id ? 
+      updatedtranscation : transaction
+    ))
+    setEdit({
+      transaction: {},
+      isedit: true,
+    })
+  })
+
   return ( 
     <div className='dark:bg-gray-800 p-4'>
-        <Form addTransaction={addTransaction} edit={edit}/>
+        <Form addTransaction={addTransaction} edit={edit} updatedtransactions={updatedtransactions}/>
         <DashBord/>
         <ListGroup transactions={transactions} removeTransaction={removeTransaction} handleEdit={handleEdit}/>
     </div>
