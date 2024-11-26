@@ -25,10 +25,11 @@ const Form = ({ addTransaction ,edit ,updatedtransactions }) => {
   })
 
   return (
-    <div className='bg-slate-200 p-10 dark:bg-gray-700'>
+    <div className='bg-slate-200 p-3 dark:bg-gray-700'>
             <form 
             onSubmit={handleSubmit}
             className='flex flex-col items-center space-y-2'>
+              <h1 className='dark:text-white font-bold text-[3em]'>Enter Your Transactions</h1>
                 <input
                 value={text}
                 onChange={(e) => {

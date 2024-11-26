@@ -47,7 +47,7 @@ const Home = () => {
   return ( 
     <div className='dark:bg-gray-800 p-4'>
         <Form addTransaction={addTransaction} edit={edit} updatedtransactions={updatedtransactions}/>
-        <DashBord/>
+        <DashBord transactions={transactions}/>
         <ListGroup transactions={transactions} removeTransaction={removeTransaction} handleEdit={handleEdit}/>
     </div>
   )
