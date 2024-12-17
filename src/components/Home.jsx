@@ -4,51 +4,13 @@ import DashBord from './DashBord'
 import ListGroup from './ListGroup'
 
 
-const Home = () => {
-  const [transactions , setTransactions] = useState([])
-  const [edit , setEdit ] = useState({
-    transaction: {} ,
-    isedit : false , 
-  })
-
-  const removeTransaction = ((id) => {
-    setTransactions(transactions.filter((transaction) => transaction.id !== id))
-  })
-
-  const addTransaction = ((text , amount) => {
-    const newTransaction = {
-      id: crypto.randomUUID(),
-      text:text,
-      amount:amount
-    }
-    
-    setTransactions([...transactions , newTransaction])
-  })
-
-  const handleEdit = ((transaction) => {
- 
-    setEdit({
-      transaction: transaction,
-      isedit: true
-    })
-  })
-  
-  const updatedtransactions = ((updatedtranscation) => {
-    setTransactions(transactions.map((transaction) => 
-      transaction.id === updatedtranscation.id ? 
-      updatedtranscation : transaction
-    ))
-    setEdit({
-      transaction: {},
-      isedit: true,
-    })
-  })
+const Home = () => {  
 
   return ( 
     <div className='dark:bg-gray-800 p-4'>
-        <Form addTransaction={addTransaction} edit={edit} updatedtransactions={updatedtransactions}/>
-        <DashBord transactions={transactions}/>
-        <ListGroup transactions={transactions} removeTransaction={removeTransaction} handleEdit={handleEdit}/>
+        <Form />
+        <DashBord />
+        <ListGroup />
     </div>
   )
 }

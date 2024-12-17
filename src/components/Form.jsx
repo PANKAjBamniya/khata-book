@@ -1,6 +1,10 @@
-import React,{useEffect, useState} from 'react'
+import React,{useContext, useEffect, useState} from 'react'
+import KhatabookContext from '../contexth/KhatabookContext'
 
-const Form = ({ addTransaction ,edit ,updatedtransactions }) => {
+const Form = () => {
+
+  const {addTransaction , edit ,updatedtransactions} = useContext(KhatabookContext);
+
   const [text, setText] = useState('')
   const [amount, setAmount] = useState()
 

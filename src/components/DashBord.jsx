@@ -1,6 +1,9 @@
-import React from 'react'
+import React, { useContext } from 'react'
+import KhatabookContext from '../contexth/KhatabookContext';
 
-const DashBord = ({transactions}) => {
+const DashBord = () => {
+
+  const {transactions} = useContext(KhatabookContext);
 
   const balance = transactions.reduce((p, c) => p + Number(c.amount), 0);
 

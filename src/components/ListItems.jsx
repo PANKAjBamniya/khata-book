@@ -1,6 +1,10 @@
-import React from 'react'
+import React, { useContext } from 'react'
+import KhatabookContext from '../contexth/KhatabookContext'
 
-const ListItems = ({transaction,removeTransaction,handleEdit}) => {
+const ListItems = ({ transaction }) => {
+
+  const { removeTransaction , handleEdit} = useContext(KhatabookContext);
+
   return ( 
     <li className='text-lg font-bold mb-2 flex items-center justify-between bg-slate-200 dark:bg-gray-700 md:p-6 p-4'>
         <div className='dark:text-white'>
